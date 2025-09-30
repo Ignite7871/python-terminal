@@ -55,8 +55,8 @@ st.session_state.cwd = rel
 left, right = st.columns([2, 1])
 
 with left:
-    st.markdown("## CodeMate Terminal – Streamlit UI")
-    st.caption("Showcase for Problem 1 (Python terminal; same behavior as CLI)")
+    st.markdown("## Python Terminal – Streamlit UI")
+    st.caption("(Python terminal; same behavior as CLI)")
 
     # Output window
     out_container = st.container(border=True)
@@ -95,28 +95,6 @@ with right:
         st.rerun()
 
     st.divider()
-    st.markdown("### Project Browser (read-only)")
-    # Simple tree list (read-only): show first level + files
-    try:
-        root_items = sorted(os.listdir(ROOT))
-        for name in root_items:
-            p = ROOT / name
-            if name.startswith('.'):
-                continue
-            if p.is_dir():
-                st.markdown(f"**{name}/**")
-                try:
-                    inner = sorted(os.listdir(p))[:8]
-                    for child in inner:
-                        st.markdown(f"- {child}{'/' if (p/child).is_dir() else ''}")
-                except Exception:
-                    pass
-            else:
-                st.markdown(f"- {name}")
-    except Exception as e:
-        st.info(f"(browser error: {e})")
-
-    st.divider()
     if st.button("Clear Output", use_container_width=True):
         banner_buf = io.StringIO()
         with redirect_stdout(banner_buf):
@@ -125,3 +103,4 @@ with right:
         st.rerun()
 
     st.caption(f"cwd: {st.session_state.cwd}")
+
