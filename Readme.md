@@ -58,10 +58,3 @@ app.py → Streamlit-based web interface (reuses Terminal class)
 
 requirements.txt → Dependencies (minimal: Streamlit only)
 
-Roadmap
-
-Add color-coded output and tab-completion
-
-Extend commands (e.g., grep, find, chmod)
-
-Improve web UI with multi-session support and persistent filesystem state
